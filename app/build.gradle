@@ -50,13 +50,13 @@ android {
     buildToolsVersion "24"
 
     defaultConfig {
-        applicationId "de.fhdw.ergoholics.brainphaser"
+        applicationId "com.questions.game"
         minSdkVersion 15
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "de.fhdw.ergoholics.brainphaser.MockTestRunner"
+        testInstrumentationRunner "com.questions.game.MockTestRunner"
     }
 
     buildTypes {

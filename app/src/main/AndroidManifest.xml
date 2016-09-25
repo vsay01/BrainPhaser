@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="de.fhdw.ergoholics.brainphaser">
+          package="com.questions.game">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
-        android:name=".BrainPhaserApplication"
+        android:name="com.questions.game.BrainPhaserApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -24,7 +24,7 @@
         </activity>
 
         <activity
-            android:name=".activities.main.ProxyActivity"
+            android:name="com.questions.game.activities.main.ProxyActivity"
             android:label="@string/app_name"
             android:theme="@style/SplashTheme">
             <intent-filter>
@@ -32,7 +32,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".activities.fileimport.ImportChallengeActivity">
+        <activity android:name="com.questions.game.activities.fileimport.ImportChallengeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
@@ -56,55 +56,55 @@
                 <data android:mimeType="application/octet-stream"/>
             </intent-filter>
         </activity>
-        <activity android:name=".activities.createuser.CreateUserActivity"/>
+        <activity android:name="com.questions.game.activities.createuser.CreateUserActivity"/>
         <activity
-            android:name=".activities.selectuser.UserSelectionActivity"
+            android:name="com.questions.game.activities.selectuser.UserSelectionActivity"
             android:label="@string/select_user"
-            android:parentActivityName=".activities.main.MainActivity">
+            android:parentActivityName="com.questions.game.activities.main.MainActivity">
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.main.MainActivity"/>
+                android:value="com.questions.game.activities.main.MainActivity"/>
         </activity>
         <activity
-            android:name=".activities.aboutscreen.AboutActivity"
-            android:parentActivityName=".activities.main.MainActivity"
+            android:name="com.questions.game.activities.aboutscreen.AboutActivity"
+            android:parentActivityName="com.questions.game.activities.main.MainActivity"
             android:label="@string/about">
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.main.MainActivity" />
+                android:value="com.questions.game.activities.main.MainActivity" />
         </activity>
         <activity
-            android:name=".activities.main.MainActivity"
+            android:name="com.questions.game.activities.main.MainActivity"
             android:launchMode="singleTask">
         </activity>
         <activity
-            android:name=".activities.playchallenge.ChallengeActivity"
+            android:name="com.questions.game.activities.playchallenge.ChallengeActivity"
             android:label="@string/nav_learn"
-            android:parentActivityName=".activities.main.MainActivity"
+            android:parentActivityName="com.questions.game.activities.main.MainActivity"
             >
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.main.MainActivity"/>
+                android:value="com.questions.game.activities.main.MainActivity"/>
         </activity>
-        <activity android:name=".activities.statistics.StatisticsActivity"
+        <activity android:name="com.questions.game.activities.statistics.StatisticsActivity"
             android:label="@string/statistics_label"
-            android:parentActivityName=".activities.main.MainActivity">
+            android:parentActivityName="com.questions.game.activities.main.MainActivity">
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.main.MainActivity"/>
+                android:value="com.questions.game.activities.main.MainActivity"/>
         </activity>
-        <activity android:name=".activities.usersettings.SettingsActivity"
+        <activity android:name="com.questions.game.activities.usersettings.SettingsActivity"
             android:label="@string/settings_label"
             android:configChanges="orientation|screenSize"
-            android:parentActivityName=".activities.main.MainActivity">
+            android:parentActivityName="com.questions.game.activities.main.MainActivity">
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.main.MainActivity"/>
+                android:value="com.questions.game.activities.main.MainActivity"/>
         </activity>
     </application>
 </manifest>
