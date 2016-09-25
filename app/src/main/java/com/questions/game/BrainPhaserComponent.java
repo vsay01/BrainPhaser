@@ -2,6 +2,7 @@ package com.questions.game;
 
 import com.questions.game.activities.aboutscreen.AboutActivity;
 import com.questions.game.activities.createuser.CreateUserActivity;
+import com.questions.game.activities.login.LoginActivity;
 import com.questions.game.activities.main.MainActivity;
 import com.questions.game.activities.main.ProxyActivity;
 import com.questions.game.activities.playchallenge.AnswerFragment;
@@ -35,7 +36,7 @@ public interface BrainPhaserComponent {
     void inject(UserSelectionActivity activity);
     void inject(StatisticsActivity activity);
     void inject(SettingsActivity activity);
-
+    void inject(LoginActivity activity);
     void inject(AboutActivity activity);
 
     void inject(SelectCategoryPage selectCategoryPage);

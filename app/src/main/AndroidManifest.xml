@@ -1,110 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.questions.game">
+    package="com.questions.game">
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name="com.questions.game.BrainPhaserApplication"
+        android:name=".BrainPhaserApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
         <activity
             android:name="com.nononsenseapps.filepicker.FilePickerActivity"
             android:label="@string/app_name"
-            android:theme="@style/FilePickerTheme"
-            >
+            android:theme="@style/FilePickerTheme">
             <intent-filter>
-                <action android:name="android.intent.action.GET_CONTENT"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.GET_CONTENT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name="com.questions.game.activities.main.ProxyActivity"
+            android:name=".activities.main.ProxyActivity"
             android:label="@string/app_name"
             android:theme="@style/SplashTheme">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.questions.game.activities.fileimport.ImportChallengeActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data android:scheme="file"/>
-                <data android:host="*"/>
-                <data android:pathPattern=".*\\.bpc"/>
-                <data android:pathPattern=".*\\..*\\.bpc"/>
-                <data android:pathPattern=".*\\..*\\..*\\.bpc"/>
-                <data android:pathPattern=".*\\..*\\..*\\..*\\.bpc"/>
-                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\.bpc"/>
-                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.bpc"/>
-                <data android:mimeType="*/*"/>
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data android:scheme="content"/>
-                <data android:host="*"/>
-                <data android:pathPattern=".*"/>
-                <data android:mimeType="text/xml"/>
-                <data android:mimeType="application/octet-stream"/>
-            </intent-filter>
-        </activity>
-        <activity android:name="com.questions.game.activities.createuser.CreateUserActivity"/>
         <activity
-            android:name="com.questions.game.activities.selectuser.UserSelectionActivity"
+            android:name="com.quesetions.game.LoginActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity android:name=".activities.fileimport.ImportChallengeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="file" />
+                <data android:host="*" />
+                <data android:pathPattern=".*\\.bpc" />
+                <data android:pathPattern=".*\\..*\\.bpc" />
+                <data android:pathPattern=".*\\..*\\..*\\.bpc" />
+                <data android:pathPattern=".*\\..*\\..*\\..*\\.bpc" />
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\.bpc" />
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.bpc" />
+                <data android:mimeType="*/*" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="content" />
+                <data android:host="*" />
+                <data android:pathPattern=".*" />
+                <data android:mimeType="text/xml" />
+                <data android:mimeType="application/octet-stream" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.createuser.CreateUserActivity" />
+        <activity
+            android:name=".activities.selectuser.UserSelectionActivity"
             android:label="@string/select_user"
-            android:parentActivityName="com.questions.game.activities.main.MainActivity">
-            <!-- Parent activity meta-data to support 4.0 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.questions.game.activities.main.MainActivity"/>
-        </activity>
-        <activity
-            android:name="com.questions.game.activities.aboutscreen.AboutActivity"
-            android:parentActivityName="com.questions.game.activities.main.MainActivity"
-            android:label="@string/about">
+            android:parentActivityName=".activities.main.MainActivity">
+
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.questions.game.activities.main.MainActivity" />
         </activity>
         <activity
-            android:name="com.questions.game.activities.main.MainActivity"
-            android:launchMode="singleTask">
+            android:name=".activities.aboutscreen.AboutActivity"
+            android:label="@string/about"
+            android:parentActivityName=".activities.main.MainActivity">
+
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.questions.game.activities.main.MainActivity" />
         </activity>
         <activity
-            android:name="com.questions.game.activities.playchallenge.ChallengeActivity"
+            android:name=".activities.main.MainActivity"
+            android:launchMode="singleTask"></activity>
+        <activity
+            android:name=".activities.playchallenge.ChallengeActivity"
             android:label="@string/nav_learn"
-            android:parentActivityName="com.questions.game.activities.main.MainActivity"
-            >
+            android:parentActivityName=".activities.main.MainActivity">
+
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.questions.game.activities.main.MainActivity"/>
+                android:value="com.questions.game.activities.main.MainActivity" />
         </activity>
-        <activity android:name="com.questions.game.activities.statistics.StatisticsActivity"
+        <activity
+            android:name=".activities.statistics.StatisticsActivity"
             android:label="@string/statistics_label"
-            android:parentActivityName="com.questions.game.activities.main.MainActivity">
+            android:parentActivityName=".activities.main.MainActivity">
+
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.questions.game.activities.main.MainActivity"/>
+                android:value="com.questions.game.activities.main.MainActivity" />
         </activity>
-        <activity android:name="com.questions.game.activities.usersettings.SettingsActivity"
-            android:label="@string/settings_label"
+        <activity
+            android:name=".activities.usersettings.SettingsActivity"
             android:configChanges="orientation|screenSize"
-            android:parentActivityName="com.questions.game.activities.main.MainActivity">
+            android:label="@string/settings_label"
+            android:parentActivityName=".activities.main.MainActivity">
+
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.questions.game.activities.main.MainActivity"/>
+                android:value="com.questions.game.activities.main.MainActivity" />
+        </activity>
+        <activity
+            android:name=".activities.login.LoginActivity"
+            android:label="@string/title_activity_login"
+            android:theme="@style/AppTheme"></activity>
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
         </activity>
     </application>
+
 </manifest>

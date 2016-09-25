@@ -4,11 +4,16 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
+import com.facebook.AccessToken;
+import com.facebook.AccessTokenTracker;
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
 import com.questions.game.BrainPhaserApplication;
 import com.questions.game.BrainPhaserComponent;
 import com.questions.game.R;
 import com.questions.game.activities.BrainPhaserActivity;
 import com.questions.game.activities.createuser.CreateUserActivity;
+import com.questions.game.activities.login.LoginActivity;
 import com.questions.game.database.ChallengeDataSource;
 import com.questions.game.logic.UserManager;
 import com.questions.game.logic.fileimport.FileImport;
@@ -19,7 +24,7 @@ import javax.inject.Inject;
 
 /**
  * Created by funkv on 29.02.2016.
- *
+ * <p>
  * The activity redirects to user creation on first launch. On later launches it loads last selected
  * user and redirects to the main activity.
  */
@@ -47,8 +52,10 @@ public class ProxyActivity extends BrainPhaserActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_proxy);
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        AppEventsLogger.activateApp(getApplication());
 
-        BrainPhaserApplication application = (BrainPhaserApplication)getApplication();
+        BrainPhaserApplication application = (BrainPhaserApplication) getApplication();
         if (mUserManager.logInLastUser()) {
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             intent.putExtra(MainActivity.EXTRA_SHOW_LOGGEDIN_SNACKBAR, true);
@@ -67,7 +74,8 @@ public class ProxyActivity extends BrainPhaserActivity {
                 }
             }
 
-            startActivity(new Intent(Intent.ACTION_INSERT, Uri.EMPTY, getApplicationContext(), CreateUserActivity.class));
+            //startActivity(new Intent(Intent.ACTION_INSERT, Uri.EMPTY, getApplicationContext(), CreateUserActivity.class));
+            startActivity(new Intent(Intent.ACTION_INSERT, Uri.EMPTY, getApplicationContext(), LoginActivity.class));
             finish();
         }
     }

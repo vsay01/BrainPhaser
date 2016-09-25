@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.res.Resources;
 import android.util.DisplayMetrics;
 
+import com.facebook.FacebookSdk;
 import com.questions.game.database.DatabaseModule;
 
 import net.danlew.android.joda.JodaTimeAndroid;
@@ -50,6 +51,7 @@ public class BrainPhaserApplication extends Application {
         JodaTimeAndroid.init(this);
         component = createComponent();
         PACKAGE_NAME = getApplicationContext().getPackageName();
+        FacebookSdk.sdkInitialize(getApplicationContext());
     }
 
     /**

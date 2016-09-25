@@ -96,9 +96,12 @@ dependencies {
     compile 'com.github.PhilJay:MPAndroidChart:v2.2.3'
     compile 'org.adw.library:discrete-seekbar:1.0.1'
     compile 'net.danlew:android.joda:2.9.2'
+    compile 'com.facebook.android:facebook-android-sdk:[4,5)'
+    compile 'com.jakewharton:butterknife:8.4.0'
+    apt 'com.jakewharton:butterknife-compiler:8.4.0'
 
-    compile 'com.google.dagger:dagger:2.1'
-    apt 'com.google.dagger:dagger-compiler:2.1'
+    compile 'com.google.dagger:dagger:2.5'
+    apt 'com.google.dagger:dagger-compiler:2.5'
 
     testCompile 'junit:junit:4.12'
 
@@ -112,7 +115,7 @@ dependencies {
     androidTestCompile group: 'com.google.guava', name: 'guava', version: '15.0'
 
     // Fix version mismatch
-    androidTestCompile "com.android.support:support-annotations:23.2.1"
+    androidTestCompile "com.android.support:support-annotations:24.1.0"
 
     // Mockito
     androidTestCompile 'org.mockito:mockito-core:1.9.5'
